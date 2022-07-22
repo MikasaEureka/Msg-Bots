@@ -1,6 +1,5 @@
 # Msg-Bots
-Collect msg-pusher bots
----
+Collect msg-pusher bots  
 
 ## parts use
 
@@ -11,7 +10,7 @@ Log.py : System and Bots debug log
 
 ## checkbox
 
--[ ] add github actions and secrets
+- [ ] add github actions and secrets
 
 reference:  
 https://github.com/MikasaEureka/AutoSign-Bot-msg-Pusher  
