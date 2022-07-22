@@ -1,5 +1,5 @@
 # 推送配置
-push = {
+config = {
     # 推送方式
     # 支持qmsg酱 server酱 企业微信推送 钉钉机器人推送
     # qmsg,server,epwc,dingtalk
