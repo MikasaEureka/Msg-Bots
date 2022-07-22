@@ -5,6 +5,7 @@ import hashlib
 import base64
 import urllib.parse
 import Log
+import util.constants as const
 
 log = Log()
 
@@ -27,6 +28,7 @@ class MsgBots():
         self.Dingtalk_atMobiles = config['PushKey']['Dingtalk']['atMobiles']
         self.Dingtalk_isAtAll = config['PushKey']['Dingtalk']['isAtAll']
         self.msg = msg
+        self.Pushplus_key = config['PushKey']['Pushplus']
 
     #qmsg酱推送
     def Qmsg(self) -> None:
@@ -130,7 +132,22 @@ class MsgBots():
                     log.info("钉钉机器人:"+zz['errmsg'])
             except Exception as e:
                 log.error("钉钉机器人可能挂了:"+e)
-         
+    
+    def Pushplus(self)-> None:
+        if self.Pushplus_key == "":
+            log.info("没有Pushplus的cookie")
+        else:
+            try:
+                payload = {'token': self.Pushplus_key, "channel": "wechat", "template": "html", "content": self.msg, "title": "checkin status"}
+                resp = requests.post("http://www.pushplus.plus/send", params=payload, timeout=const.request_timeout)
+                if resp.status_code == 200:
+                    print('pushplus success code:', resp.status_code)
+                else:
+                    print('push message to pushplus error,the code is:', resp.status_code)
+                resp.close()
+            except Exception as e:
+                log.error("Pushplus可能挂了:"+e)
+            
     def MsgBots(self):
         if self.PushMode == "" or self.PushMode == "False":
             log.info("配置了不进行推送")
@@ -142,5 +159,7 @@ class MsgBots():
             self.Epwc()
         elif self.PushMode == "dingtalk":
             self.Dingtalk()
+        elif self.PushMode == "pushplus":
+            self.Pushplus()
         else:
             log.info("推送配置错误")
