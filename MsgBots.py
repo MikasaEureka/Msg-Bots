@@ -8,24 +8,24 @@ import Log
 
 log = Log()
 
-class Push():
+class MsgBots():
     """
     msg : 消息内容
-    push ： 推送的配置
+    config ： 推送的配置
     """
-    def __init__(self,msg,push) -> None:
-        self.qmsg_key = push['PushKey']['Qmsg']
-        self.Server_key = push['PushKey']['Server']
-        self.PushMode = push['PushMode']
-        self.EnterpriseId = push['PushKey']['Epwc']['EnterpriseId']
-        self.AppId = push['PushKey']['Epwc']['AppId']
-        self.AppSecret = push['PushKey']['Epwc']['AppSecret']
-        self.UserUid = push['PushKey']['Epwc']['UserUid']
-        self.Dingtalk_token = push['PushKey']['Dingtalk']['token']
-        self.Dingtalk_secret = push['PushKey']['Dingtalk']['secret']
-        self.Dingtalk_atuser = push['PushKey']['Dingtalk']['atuser']
-        self.Dingtalk_atMobiles = push['PushKey']['Dingtalk']['atMobiles']
-        self.Dingtalk_isAtAll = push['PushKey']['Dingtalk']['isAtAll']
+    def __init__(self,msg,config) -> None:
+        self.qmsg_key = config['PushKey']['Qmsg']
+        self.Server_key = config['PushKey']['Server']
+        self.PushMode = config['PushMode']
+        self.EnterpriseId = config['PushKey']['Epwc']['EnterpriseId']
+        self.AppId = config['PushKey']['Epwc']['AppId']
+        self.AppSecret = config['PushKey']['Epwc']['AppSecret']
+        self.UserUid = config['PushKey']['Epwc']['UserUid']
+        self.Dingtalk_token = config['PushKey']['Dingtalk']['token']
+        self.Dingtalk_secret = config['PushKey']['Dingtalk']['secret']
+        self.Dingtalk_atuser = config['PushKey']['Dingtalk']['atuser']
+        self.Dingtalk_atMobiles = config['PushKey']['Dingtalk']['atMobiles']
+        self.Dingtalk_isAtAll = config['PushKey']['Dingtalk']['isAtAll']
         self.msg = msg
 
     #qmsg酱推送
@@ -131,7 +131,7 @@ class Push():
             except Exception as e:
                 log.error("钉钉机器人可能挂了:"+e)
          
-    def push(self):
+    def MsgBots(self):
         if self.PushMode == "" or self.PushMode == "False":
             log.info("配置了不进行推送")
         elif self.PushMode == "qmsg":
