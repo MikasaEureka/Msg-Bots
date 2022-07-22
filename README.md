@@ -1,5 +1,7 @@
 # Msg-Bots
 Collect msg-pusher bots  
+Now including:  
+qmsg，sever酱，企业微信，钉钉
 
 ## parts use
 
