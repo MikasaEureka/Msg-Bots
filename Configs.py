@@ -11,6 +11,8 @@ config = {
         "Qmsg":"",
         # Server酱配置
         "Server":"",
+        # pushplus
+        "Pushplus":"",
         # 企业微信推送配置
         # 获取配置可以看 Server酱 的企业微信配置 https://sct.ftqq.com/forward
         "Epwc":{
