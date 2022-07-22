@@ -8,6 +8,9 @@ MsgBots.py : Bots push code
 Configs.py : Bots config  
 Log.py : System and Bots debug log  
 
+> for servers
+> `pip install -r requirements.txt` to install 
+
 ## checkbox
 
 - [ ] add github actions and secrets
