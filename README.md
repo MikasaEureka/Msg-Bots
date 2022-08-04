@@ -7,6 +7,8 @@ pushplus PUSHPLUS_TOKEN
 企业微信 EnterpriseId(企业ID) | AppId(应用ID/AgentId) | AppSecret(应用Secret) | UserUid(推送UID)  
 钉钉 DD_TOKEN(机器人token) | secret(可选：创建机器人勾选“加签”选项时使用) | atuser(被@人的用户userid。选填) | atMobiles(被@人的手机号。选填) | isAtAll(是否@所有人)  
 
+- [基于企业微信 API 开发的用于消息通知的 Python 库](https://github.com/MikasaEureka/Msg-Bots-wechat_work/settings/branches)  
+
 ## parts use
 
 > for servers
